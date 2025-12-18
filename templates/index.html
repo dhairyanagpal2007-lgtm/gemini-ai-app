@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Gemini Q&A App</title>
+    <title>Gemini AI App</title>
 </head>
 <body>
-    <h2>ai Question Answer App</h2>
+    <h1>Gemini Question Answer App</h1>
 
-    <form method="post">
-        <input type="text" name="question" placeholder="Ask your question" required>
+    <form method="POST">
+        <input type="text" name="question" placeholder="Ask something" required>
         <button type="submit">Ask</button>
     </form>
 
-    <p><b>Answer:</b></p>
-    <p>{{ answer }}</p>
-
+    {% if answer %}
+        <h3>Answer:</h3>
+        <p>{{ answer }}</p>
+    {% endif %}
 </body>
 </html>
