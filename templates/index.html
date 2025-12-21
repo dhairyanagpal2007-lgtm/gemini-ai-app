@@ -37,11 +37,16 @@
 
 <h2>Ask Gemini (Text or Voice)</h2>
 
-<form method="POST">
-    <textarea id="question" name="question" placeholder="Type or speak your question..." required></textarea><br>
+<form method="POST" enctype="multipart/form-data">
 
-    <button type="submit">Ask</button>
-    <button type="button" class="mic" onclick="startMic()">🎤 Speak</button>
+<textarea id="question" name="question"
+ placeholder="Type or speak your question..." required></textarea><br>
+
+<input type="file" name="image" accept="image/*"><br><br>
+
+<button type="submit">Ask</button>
+<button type="button" class="mic" onclick="startMic()">🎤 Speak</button>
+
 </form>
 
 {% if answer %}
