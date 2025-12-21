@@ -4,6 +4,7 @@ import os
 
 app = Flask(__name__)
 
+# Gemini API key from Render Environment Variables
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 model = genai.GenerativeModel("models/gemini-2.5-flash")
@@ -12,9 +13,10 @@ model = genai.GenerativeModel("models/gemini-2.5-flash")
 def home():
     answer = ""
     if request.method == "POST":
-        question = request.form["question"]
-        response = model.generate_content(question)
-        answer = response.text
+        question = request.form.get("question")
+        if question:
+            response = model.generate_content(question)
+            answer = response.text
 
     return render_template("index.html", answer=answer)
 
